@@ -35,6 +35,7 @@
             width: 100%;
             height: 100%;
         }
+        .modal{position:fixed;top:50%;left:10%;z-index:1050;overflow:auto;width:80%;margin:-250px 0 0 0px;background-color:#ffffff;border:1px solid #999;border:1px solid rgba(0, 0, 0, 0.3);*border:1px solid #999;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;}.modal.fade{-webkit-transition:opacity .3s linear, top .3s ease-out;-moz-transition:opacity .3s linear, top .3s ease-out;-ms-transition:opacity .3s linear, top .3s ease-out;-o-transition:opacity .3s linear, top .3s ease-out;transition:opacity .3s linear, top .3s ease-out;top:-25%;}
         
 	</style>
 	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
@@ -71,9 +72,45 @@
         <section id="buttonGroups">
             <div class="page-header">
                 <h1>About</h1>
+                <p>The <strong>A</strong>dvanced <strong>D</strong>ata mining and <strong>M</strong>achine learning <strong>S</strong>ystem, or ADAMS, is a modular framework written in Java and uses <a href="http://maven.apache.org/">Maven</a> as its build system.</p>
+                <p>The core of ADAMS is the <em>workflow engine</em>, which follows the philosophy of <em>less is more</em>. Instead of letting the user place operators (or <em>actors</em> in ADAMS terms) on a canvas and then manually connect inputs and outputs, ADAMS uses a tree-like structure. This structure and the <em>control actors</em> define how the data is flowing in the workflow, no explicit connections necessary. The tree-like structure stems from the internal object representation and the nesting of sub-actors within <em>actor-handlers</em>.</p>
             </div>
+
             <div class="row">
+              <div class="span10">
+                <div class="span4">
+                    <a data-toggle="modal" href="#flow_snippet" class="thumbnail">
+                        <img src="img/flow_snippet.png" alt="Flow snippet" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                    </a>
+                    <div id="flow_snippet" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>Flow snippet</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="span10">
+                                <div class="row">
+                                    <div class="span5"><img src="img/flow_snippet.png" alt="Seismic data visualization"/></div>
+                                    <div class="span5">
+                                        <table class="table table-condensed">
+                                            <tr><td><span class="badge">1</span></td><td> Horizontal and vertical indicators show how the data flows</td></tr>
+                                            <tr><td><span class="badge">2</span></td><td> Each actor has its own icon, since the name can be changed arbitrarily</td></tr>
+                                            <tr><td><span class="badge">3</span></td><td> Four types of actors: <span style="color: red; ">standalone</span> (no input, no output), <span style="color: darkorange; ">source</span> (only output), <span style="color: darkgreen; ">transformer</span> (input and output) and <span style="color: grey; ">source</span> (only input)</td></tr>
+                                            <tr><td><span class="badge">4</span></td><td> Control actors, i.e., actors that determine the flow of data or flow execution are <span style="color: blue; ">blue</span></td></tr>
+                                            <tr><td><span class="badge">5</span></td><td> Actors with parameters usually show a so-called <span style="color: darkgreen; ">quick info</span> on the right-hand side of the name, to give the user an idea how the actor is parametrized without having to open up the dialog with the options.</td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                  <p>Snippet of an example flow, click to enlarge.</p>
+                </div>
+              </div>
             </div>
+
         </section>
         
       <hr>
