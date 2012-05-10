@@ -35,6 +35,7 @@
             width: 100%;
             height: 100%;
         }
+        .modal{position:fixed;top:50%;left:30%;z-index:1050;overflow:auto;width:560px;margin:-250px 0 0 -280px;background-color:#ffffff;border:1px solid #999;border:1px solid rgba(0, 0, 0, 0.3);*border:1px solid #999;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;}.modal.fade{-webkit-transition:opacity .3s linear, top .3s ease-out;-moz-transition:opacity .3s linear, top .3s ease-out;-ms-transition:opacity .3s linear, top .3s ease-out;-o-transition:opacity .3s linear, top .3s ease-out;transition:opacity .3s linear, top .3s ease-out;top:-25%;}
         
 	</style>
 	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
@@ -73,59 +74,41 @@
                 <h1>Email alerts <small>Automatically send out emails when events occur (or simply when your flow finishes)</small></h1>
             </div>
             <div class="row">
-                <div class="span4">
+                <div class="span3">
                     <h3>Alert on event</h3>
                     <p>Visualizing seismic data. Data was retrieved using the <a href="http://www.geonet.org.nz/resources/basic-data/waveform-data/">Geonet client</a>. This flow sends out an email alert if a tremor exceeds a certain strength.</p>
-                    <table class="table table-condensed">
-                    <tr><td><span class="badge">1</span></td><td> Some explanation with step 1</td></tr>
-                    <tr><td><span class="badge badge-success">2</span></td><td> Some explanation with step 2</td></tr>
-                    </table>
-                    
                     <span class="label">Events</span>
                     <span class="label">Label2</span>
                 </div>
                 <div class="span4">
-                            <div class="thumbnail">
-                                <img src="http://placehold.it/360x268" alt="">
-                            </div>
-                </div>
-                <div class="span4">
-                    <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/vdN9Uxson5o" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="buttonGroups">
-            <div class="page-header">
-                <h1>Email alerts <small>Automatically send out emails when events occur (or simply when your flow finishes)</small></h1>
-            </div>
-            <div class="row">
-                <div class="span4">
-                    <h3>Alert on event</h3>
-                    <p>Visualizing seismic data. Data was retrieved using the <a href="http://www.geonet.org.nz/resources/basic-data/waveform-data/">Geonet client</a>. This flow sends out an email alert if a tremor exceeds a certain strength.</p>
-                    <table class="table table-condensed">
-                        <tr><td><span class="badge">1</span></td><td> Some explanation with step 1</td></tr>
-                        <tr><td><span class="badge badge-success">2</span></td><td> Some explanation with step 2</td></tr>
-                    </table>
-                    
-                    <span class="label">Events</span>
-                    <span class="label">Label2</span>
-                </div>
-                <div class="span4">
-                    <div class="thumbnail">
+                    <a data-toggle="modal" href="#flow1" class="thumbnail">
                         <img src="http://placehold.it/360x268" alt="">
-                            </div>
+                    </a>
+                    <div id="flow1" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>ADAMS Flow</h3>
+                        </div>
+                        <div class="modal-body" style="align:left">
+                            <img src="http://placehold.it/360x268" alt="">
+                                <table class="table table-condensed">
+                                    <tr><td><span class="badge">1</span></td><td> Some explanation with step 1</td></tr>
+                                    <tr><td><span class="badge badge-success">2</span></td><td> Some explanation with step 2</td></tr>
+                                    <tr><td><span class="badge badge-warning">3</span></td><td> Some explanation with step 3</td></tr>
+                                    <tr><td><span class="badge badge-error">4</span></td><td> Some explanation with step 4</td></tr>
+                                    <tr><td><span class="badge badge-info">5</span></td><td> Some explanation with step 5</td></tr>
+                                    <tr><td><span class="badge badge-inverse">6</span></td><td> Some explanation with step 6</td></tr>
+                                </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="span4">
+                <div class="span5">
                     <div class="embed-container">
                         <iframe src="http://www.youtube.com/embed/vdN9Uxson5o" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
-        
-        
         
       <hr>
 
