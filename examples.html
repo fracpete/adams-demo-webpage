@@ -94,12 +94,12 @@
                                         <div class="span7"><img src="img/geonet1.png" alt="Geonet1 flow"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td> Some explanation with step 1</td></tr>
-                                                <tr><td><span class="badge badge-success">2</span></td><td> Some explanation with step 2</td></tr>
-                                                <tr><td><span class="badge badge-warning">3</span></td><td> Some explanation with step 3</td></tr>
-                                                <tr><td><span class="badge badge-error">4</span></td><td> Some explanation with step 4</td></tr>
-                                                <tr><td><span class="badge badge-info">5</span></td><td> Some explanation with step 5</td></tr>
-                                                <tr><td><span class="badge badge-inverse">6</span></td><td> Some explanation with step 6</td></tr>
+                                                <tr><td><span class="badge">1</span></td><td> Read text file, line by line</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td> Extract Unix timestamp, convert into double and store as variable</td></tr>
+                                                <tr><td><span class="badge">3</span></td><td> Extract amplitude, convert into double and store as variable</td></tr>
+                                                <tr><td><span class="badge">4</span></td><td> Turn timestamp and amplitude into a double array</td></tr>
+                                                <tr><td><span class="badge">5</span></td><td> Generate data structure for plot</td></tr>
+                                                <tr><td><span class="badge">6</span></td><td> The global plot</td></tr>
                                             </table>
                                         </div>
                                     </div>
@@ -127,10 +127,10 @@
                     <span class="label">Email</span>
                 </div>
                 <div class="span4">
-                    <a data-toggle="modal" href="#flow1" class="thumbnail">
+                    <a data-toggle="modal" href="#flow2" class="thumbnail">
                         <img src="img/geonet2.png" width="50%" height="50%" alt="Geonet2 flow" title="Click to open in full view, with annotations"/>
                     </a>
-                    <div id="flow1" class="modal hide fade">
+                    <div id="flow2" class="modal hide fade">
                         <div class="modal-header">
                             <button class="close" data-dismiss="modal">&times;</button>
                             <h3>Email alerts for seismic events</h3>
@@ -141,12 +141,15 @@
                                         <div class="span7"><img src="img/geonet2.png" alt="Geonet2 flow"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td> Some explanation with step 1</td></tr>
-                                                <tr><td><span class="badge badge-success">2</span></td><td> Some explanation with step 2</td></tr>
-                                                <tr><td><span class="badge badge-warning">3</span></td><td> Some explanation with step 3</td></tr>
-                                                <tr><td><span class="badge badge-error">4</span></td><td> Some explanation with step 4</td></tr>
-                                                <tr><td><span class="badge badge-info">5</span></td><td> Some explanation with step 5</td></tr>
-                                                <tr><td><span class="badge badge-inverse">6</span></td><td> Some explanation with step 6</td></tr>
+                                                <tr><td><span class="badge">1</span></td><td> Read text file, line by line</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td> Extract Unix timestamp, convert into double and store as variable</td></tr>
+                                                <tr><td><span class="badge">3</span></td><td> Convert timestamp into human-readable representation for email</td></tr>
+                                                <tr><td><span class="badge">4</span></td><td> Extract amplitude, convert into double and store as variable</td></tr>
+                                                <tr><td><span class="badge">5</span></td><td> Check whether incoming token (amplitude) is larger than threshold and email hasn't been sent yet</td></tr>
+                                                <tr><td><span class="badge">6</span></td><td> Note that email was sent and send email with information about event (time/date and amplitude)</td></tr>
+                                                <tr><td><span class="badge">7</span></td><td> Turn timestamp and amplitude into a double array</td></tr>
+                                                <tr><td><span class="badge">8</span></td><td> Generate data structure for plot</td></tr>
+                                                <tr><td><span class="badge">9</span></td><td> The global plot</td></tr>
                                             </table>
                                         </div>
                                     </div>
