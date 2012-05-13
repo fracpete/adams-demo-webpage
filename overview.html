@@ -70,9 +70,30 @@
     <div class="container">
         <section id="buttonGroups">
             <div class="page-header">
-                <h1>Overview</h1>
+              <h1>Overview</h1>
             </div>
             <div class="row">
+              <div class="span10">
+              <div style="float: right;"><img src="img/flow_snippet2.png"/></div>
+              <h2>Control actors</h2>
+              <p>The workflow engine in ADAMS was developed based on experiences with other workflows, like Kepler. The most common approach to workflows is to let the user place operators (or actors in ADAMS/<a href="https://kepler-project.org/">Kepler</a> terms) on a large canvas and then connect the correct inputs and outputs. This approach is probably the most intuitive one, but also the most time-consuming one if a flow contains more than 10-20 actors. Even by combining multiple actors in groups (aka meta-actors, which popup in new window or tab) and providing birds-eye-view of the canvas, this does not solve the problem that the flow quickly becomes unwieldy. Adding new actors usually results in moving around the existing ones and reconnecting inputs and outputs, which is quite time-consuming.</p>
+              <p>Internally, ADAMS uses a nested structure of actors, i.e., actors are either <em>primitives</em>, that don't nest other actors, or <em>actor handlers</em>, that nest either a fixed or variable number of other actors. This nested structure can be displayed in a compact and easy to navigate tree structure.</p>
+              <p>To allow the user to concentrate on developing the flow, ADAMS makes the flow of the data implicit by using <strong>control actors</strong> instead of explicit connections. Control actors usually use a <span style="color: blue; ">blue frame</span> in their associated icon. In order to make it more apparent, how the data flows, visual cues in form of black vertical or horizontal lines are added to the display.</p>
+              <p>A <strong>Tee</strong> actor first forks off the data token into a sub-branch for processing, before passing it on (like the Unix "tee" command). Therefore it uses vertical and horizontal cues. The <img src="img/actor-conditionaltee.png"/> <strong>conditional Tee</strong>, as shown in the snippet on the right, forks off the token only every 25 tokens. The <strong>Branch</strong> manages an arbitrary number of sub-branches, forwarding the same token to all of them. The visual cue used for its sub-branches is a horizontal line. The <img src="img/actor-sequence.png"/> <strong>Sequence</strong> merely groups several actors together and makes the output of one actor available to the next one as input. It uses vertical lines as visual cues.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span10">
+              <h2>Containers, variables, internal storage and global actors</h2>
+              <p>Using a tree-structure limits the flow to 1-to-1 and 1-to-n connections, of course. ADAMS uses various approaches to mitigate this shortcoming:
+                <ul>
+                  <li><strong>Containers</strong> encapsulate multiple values, using key-value pairs. For instance, when classifying an instance, you want to forward the classification label, the class distribution and the updated instance. Subsequent actors either work directly with the container, or you use the <em>ContainerValuePicker</em> to extract a specific value using its name.</li>
+                  <li><strong>Variables</strong> can be attached to any option within ADAMS, not just actor options. This allows you to dynamically change the parameters of actors and other objects on-the-fly while the flow is being executed. Currently, attaching whole sub-flows to options is being implemented.</li>
+                  <li><strong>Internal storage</strong> allows you to store any Java object as a key-value pair. By loading a dataset once and storing it internally, you can access it multiple times in multiple locations in the flow. For instance, evaluating a dataset using cross-validation and building a model with the dataset are two separate sub-flows.</li>
+                  <li><strong>Global actors</strong> provide a synchronized entry point for multiple streams, providing therefore n-to-1 connections. In the example on this page, the <img src="img/actor-globalsink.png"/> <strong>GlobalSink</strong> actors reference the sample <em>SequencePlotter</em> actor, displaying three different plots in the same graph (Accuracy, RMSE and AUC). The <em>GlobalSource</em> actor allows you to reference a source and <em>GlobalTransformer</em> a transformer actor. Whether the referenced actor is just a single actor or an actual sub-flow doesn't matter.</li>
+                </ul>
+              </p>
+              </div>
             </div>
         </section>
         
