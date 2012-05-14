@@ -35,6 +35,7 @@
             width: 100%;
             height: 100%;
         }
+        .modal{position:fixed;top:50%;left:10%;z-index:1050;overflow:auto;width:80%;margin:-250px 0 0 0px;background-color:#ffffff;border:1px solid #999;border:1px solid rgba(0, 0, 0, 0.3);*border:1px solid #999;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;}.modal.fade{-webkit-transition:opacity .3s linear, top .3s ease-out;-moz-transition:opacity .3s linear, top .3s ease-out;-ms-transition:opacity .3s linear, top .3s ease-out;-o-transition:opacity .3s linear, top .3s ease-out;transition:opacity .3s linear, top .3s ease-out;top:-25%;}
         
 	</style>
 	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
@@ -69,11 +70,300 @@
 
     <div class="container">
         <section id="buttonGroups">
-            <div class="page-header">
-                <h1>Prototyping</h1>
+          <div class="page-header">
+            <h1>Prototyping</h1>
+            <p>ADAMS strives to enable you to quickly set up and modify complex workflows, allowing you to concentrate on the functionality rather than the presentation.</p>
+          </div>
+          <!-- dnd -->
+          <div class="row">
+            <div class="span10">
+              <h2>Drag'n'drop of actors</h2>
+              <p>Using drag'n'drop you can quickly assemble a flow:</p>
+              <div class="span4">
+                  <a data-toggle="modal" href="#dnd1" class="thumbnail">
+                      <img src="img/dragndrop-example1.png" alt="Drag'n'drop example" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="dnd1" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Drag'n'drop</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/dragndrop-example1.png" width="80%" alt="Drag'n'drop example"/></div>
+                                  <div class="span3">
+                                    <p>You simply select an actor in the <em>Actors</em> tab and drag it onto the actor where you want to add it relative to (beneath, after or at this exact location)</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Dragging the <em>StringConstants</em> source onto the flow.</p>
+              </div>
+              <div class="span4">
+                  <a data-toggle="modal" href="#dnd2" class="thumbnail">
+                      <img src="img/dragndrop-example2.png" alt="Drag'n'drop example" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="dnd2" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Drag'n'drop</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/dragndrop-example2.png" width="80%" alt="Drag'n'drop example"/></div>
+                                  <div class="span3">
+                                    <p>After <em>dropping</em> the actor onto another, you select how to insert it: beneath, after or at this exact location.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Specifying how to insert the <em>StringConstants</em> source into the flow.</p>
+              </div>
             </div>
-            <div class="row">
+          </div>
+          <!-- context -->
+          <div class="row">
+            <div class="span10">
+              <h2>Context-sensitive adding of actors</h2>
+              <p>Instead of adding actors by dragging them from the library of available ones, you can use ADAMS' context-sensitive adding via right-clicking on an actor and adding it <em>beneath</em>, <em>here</em> or <em>after</em>:</p>
+              <div class="span4">
+                  <a data-toggle="modal" href="#combobox" class="thumbnail">
+                      <img src="img/actorsuggestions-combobox.png" alt="Actor suggestions in combobox" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="combobox" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Context-sensitive adding of actors</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/actorsuggestions-combobox.png" width="80%" alt="Actor suggestions in combobox"/></div>
+                                  <div class="span3">
+                                    <p>Depending on where you trying to add an actor (parent actor, actors before and/or after), different suggestions of commonly used actors are being offered in the combobox.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Common actors to be added as a source.</p>
+              </div>
             </div>
+          </div>
+          <!-- class tree -->
+          <div class="row">
+            <div class="span10">
+              <p>You can always bring up the complete range of possible actors by clicking on the <img src="img/actorsuggestions-tree.png"/><strong>class tree</strong> button. The popup allows you to perform a search within the (class) names of the actors. While typing the search string the view gets updated and only the actors that match the search string are being displayed.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10">
+              <div class="span4">
+                  <a data-toggle="modal" href="#search" class="thumbnail">
+                      <img src="img/actorsuggestions-search.png" alt="Search for actors" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="search" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Searching for actors</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/actorsuggestions-search.png" width="80%" alt="Search for actors"/></div>
+                                  <div class="span3">
+                                    <p>The search box allows you to search in the actor class names (substring matching). Only actors that match <em>str</em> are being displayed in this screenshot.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Searching for an actor in the actor tree.</p>
+              </div>
+            </div>
+          </div>
+          <!-- wekafilereader -->
+          <div class="row">
+            <div class="span10">
+              <p>For now we settle for using the <em>SingleFileSupplier</em> as source. Adding an additional actor after the <em>SingleFileSupplier</em> will remove the source actors from the class tree and also change the suggested actors to add next:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10">
+              <div class="span4">
+                  <a data-toggle="modal" href="#context1" class="thumbnail">
+                      <img src="img/actorsuggestions-context1.png" alt="Context sensitive suggestions" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="context1" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Context-sensitive suggestions</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/actorsuggestions-context1.png" width="80%" alt="Search for actors"/></div>
+                                  <div class="span3">
+                                    <p>Adding an actor <strong>after</strong> the <em>SingleFileSupplier</em> changes the context and therefore the suggestions. We will choose the <em>WekaFileReader</em> in this example.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Adding another actor after the <em>SingleFileSupplier</em> source.</p>
+              </div>
+            </div>
+          </div>
+          <!-- wekaclassselector -->
+          <div class="row">
+            <div class="span10">
+              <p>After adding the <em>WekaFileReader</em> we get presented with another list of suggested actors:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10">
+              <div class="span4">
+                  <a data-toggle="modal" href="#context2" class="thumbnail">
+                      <img src="img/actorsuggestions-context2.png" alt="Context sensitive suggestions" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="context2" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Context-sensitive suggestions</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/actorsuggestions-context2.png" width="80%" alt="Search for actors"/></div>
+                                  <div class="span3">
+                                    <p>We will choose the <em>WekaClassSelector</em> this time, as we want to define the class attribute of the dataset that we are loading.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Adding the <em>WekaClassSelector</em> actor after the <em>WekaFileReader</em> transformer.</p>
+              </div>
+            </div>
+          </div>
+          <!-- crossvalidation -->
+          <div class="row">
+            <div class="span10">
+              <p>With the dataset fully configured, the <em>WekaCrossValidationEvaluator</em> actor is the next one that we want to add from the suggestions:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10">
+              <div class="span4">
+                  <a data-toggle="modal" href="#context3" class="thumbnail">
+                      <img src="img/actorsuggestions-context3.png" alt="Context sensitive suggestions" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="context3" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Context-sensitive suggestions</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/actorsuggestions-context3.png" width="80%" alt="Search for actors"/></div>
+                                  <div class="span3">
+                                    <p>With the <em>WekaCrossValidationEvaluator</em> we can evaluate the dataset using a globally defined classifier.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Using the the <em>WekaCrossValidationEvaluator</em> to perform 10-fold cross-validation of a globally defined classifier on the dataset.</p>
+              </div>
+            </div>
+          </div>
+          <!-- summary -->
+          <div class="row">
+            <div class="span10">
+              <p>To obtain a summary of the cross-validation performed, we will add the <em>WekaEvaluationSummary</em> transformer which will generate textual output:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10">
+              <div class="span4">
+                  <a data-toggle="modal" href="#context4" class="thumbnail">
+                      <img src="img/actorsuggestions-context4.png" alt="Context sensitive suggestions" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="context4" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Context-sensitive suggestions</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/actorsuggestions-context4.png" width="80%" alt="Search for actors"/></div>
+                                  <div class="span3">
+                                    <p>The <em>WekaEvaluationSummary</em> transformer turns an Evaluation object into a textual representation.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>For obtaining a textual representation of the evaluation, we use the <em>WekaEvaluationSummary</em> transformer.</p>
+              </div>
+            </div>
+          </div>
+          <!-- display -->
+          <div class="row">
+            <div class="span10">
+              <p>And finally, we add the <em>Display</em> sink for viewing the result of the cross-validation:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10">
+              <div class="span4">
+                  <a data-toggle="modal" href="#context5" class="thumbnail">
+                      <img src="img/actorsuggestions-context5.png" alt="Context sensitive suggestions" height="50%" width="50%" title="Click to open in full view, with annotations"/>
+                  </a>
+                  <div id="context5" class="modal hide fade">
+                      <div class="modal-header">
+                          <button class="close" data-dismiss="modal">&times;</button>
+                          <h3>Context-sensitive suggestions</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="span10">
+                              <div class="row">
+                                  <div class="span7"><img src="img/actorsuggestions-context5.png" width="80%" alt="Search for actors"/></div>
+                                  <div class="span3">
+                                    <p>The <em>Display</em> sink is a simple actor for displaying any string (objects are turned into strings using the <em>toString()</em> method).</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="span6">
+                <p>Finally, displaying the results using the <em>Display</em> sink.</p>
+              </div>
+            </div>
+          </div>
         </section>
         
       <hr>
