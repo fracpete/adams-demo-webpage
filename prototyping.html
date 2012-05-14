@@ -133,7 +133,7 @@
           <div class="row">
             <div class="span10">
               <h2>Context-sensitive adding of actors</h2>
-              <p>Instead of adding actors by dragging them from the library of available ones, you can use ADAMS' context-sensitive adding via right-clicking on an actor and adding it <em>beneath</em>, <em>here</em> or <em>after</em>:</p>
+              <p>Instead of adding actors by dragging them from the library of available ones, you can use ADAMS' context-awareness when adding actors via right-clicking on an actor and adding it <em>beneath</em>, <em>here</em> or <em>after</em>:</p>
               <div class="span4">
                   <a data-toggle="modal" href="#combobox" class="thumbnail">
                       <img src="img/actorsuggestions-combobox.png" alt="Actor suggestions in combobox" height="50%" width="50%" title="Click to open in full view, with annotations"/>
@@ -148,16 +148,16 @@
                               <div class="row">
                                   <div class="span7"><img src="img/actorsuggestions-combobox.png" width="80%" alt="Actor suggestions in combobox"/></div>
                                   <div class="span3">
-                                    <p>Depending on where you trying to add an actor (parent actor, actors before and/or after), different suggestions of commonly used actors are being offered in the combobox.</p>
+                                    <p>Depending on where you are trying to add an actor (parent actor, actors before and/or after), different suggestions of commonly used actors are being offered in the combobox at the top.</p>
                                   </div>
                               </div>
                           </div>
                       </div>
                   </div>
               </div>
-              <div class="span6">
+              <!--div class="span6">
                 <p>Common actors to be added as a source.</p>
-              </div>
+              </div-->
             </div>
           </div>
           <!-- class tree -->
@@ -189,15 +189,15 @@
                       </div>
                   </div>
               </div>
-              <div class="span6">
+              <!--div class="span6">
                 <p>Searching for an actor in the actor tree.</p>
-              </div>
+              </div-->
             </div>
           </div>
           <!-- wekafilereader -->
           <div class="row">
             <div class="span10">
-              <p>For now we settle for using the <em>SingleFileSupplier</em> as source. Adding an additional actor after the <em>SingleFileSupplier</em> will remove the source actors from the class tree and also change the suggested actors to add next:</p>
+              <p>For now we settle on using the <em>SingleFileSupplier</em> actor as source. Adding an additional actor after the <em>SingleFileSupplier</em> will remove the source actors from the class tree and also change the suggested actors to add next:</p>
             </div>
           </div>
           <div class="row">
@@ -223,9 +223,9 @@
                       </div>
                   </div>
               </div>
-              <div class="span6">
+              <!--div class="span6">
                 <p>Adding another actor after the <em>SingleFileSupplier</em> source.</p>
-              </div>
+              </div-->
             </div>
           </div>
           <!-- wekaclassselector -->
@@ -257,15 +257,15 @@
                       </div>
                   </div>
               </div>
-              <div class="span6">
+              <!--div class="span6">
                 <p>Adding the <em>WekaClassSelector</em> actor after the <em>WekaFileReader</em> transformer.</p>
-              </div>
+              </div-->
             </div>
           </div>
           <!-- crossvalidation -->
           <div class="row">
             <div class="span10">
-              <p>With the dataset fully configured, the <em>WekaCrossValidationEvaluator</em> actor is the next one that we want to add from the suggestions:</p>
+              <p>With the dataset fully configured, the <em>WekaCrossValidationEvaluator</em> actor is the next one that we want to choose from the suggestions:</p>
             </div>
           </div>
           <div class="row">
@@ -291,9 +291,9 @@
                       </div>
                   </div>
               </div>
-              <div class="span6">
+              <!--div class="span6">
                 <p>Using the the <em>WekaCrossValidationEvaluator</em> to perform 10-fold cross-validation of a globally defined classifier on the dataset.</p>
-              </div>
+              </div-->
             </div>
           </div>
           <!-- summary -->
@@ -325,9 +325,9 @@
                       </div>
                   </div>
               </div>
-              <div class="span6">
+              <!--div class="span6">
                 <p>For obtaining a textual representation of the evaluation, we use the <em>WekaEvaluationSummary</em> transformer.</p>
-              </div>
+              </div-->
             </div>
           </div>
           <!-- display -->
@@ -359,9 +359,15 @@
                       </div>
                   </div>
               </div>
-              <div class="span6">
+              <!--div class="span6">
                 <p>Finally, displaying the results using the <em>Display</em> sink.</p>
-              </div>
+              </div-->
+            </div>
+          </div>
+          <!-- final steps -->
+          <div class="row">
+            <div class="span10">
+              <p>Before the flow can be executed, you still need to add a <em>GlobalActors</em> standalone actor before the source actor. To this special container actor, you will add (and configure) a <em>WekaClassifier</em> transformer. This is the transformer that the <em>WekaCrossValidationEvaluator</em> references.</p>
             </div>
           </div>
         </section>
