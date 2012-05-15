@@ -1,0 +1,372 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+	body {
+	  padding-top: 60px;
+	  padding-bottom: 40px;
+	}
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16/9 ratio */
+            padding-top: 30px; /* IE6 workaround*/
+            height: 0;
+            overflow: hidden;
+        }
+        .embed-container iframe,
+        .embed-container object,
+        .embed-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .modal{position:fixed;top:50%;left:10%;z-index:1050;overflow:auto;width:80%;margin:-250px 0 0 0px;background-color:#ffffff;border:1px solid #999;border:1px solid rgba(0, 0, 0, 0.3);*border:1px solid #999;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;}.modal.fade{-webkit-transition:opacity .3s linear, top .3s ease-out;-moz-transition:opacity .3s linear, top .3s ease-out;-ms-transition:opacity .3s linear, top .3s ease-out;-o-transition:opacity .3s linear, top .3s ease-out;transition:opacity .3s linear, top .3s ease-out;top:-25%;}
+        
+	</style>
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">ADAMS</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="active"><a href="examples.html">Examples</a></li>
+                <li><a href="docs.html">Documentation</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="span6">
+            <ul class="breadcrumb">
+              <li>
+              <a href="examples.html">Examples</a> <span class="divider">/</span>
+              </li>
+              <li class="active">
+              Time Series
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- learning curve-->
+        <section id="buttonGroups">
+            <!--div class="page-header">
+                <h1>Visualization examples</h1>
+            </div-->
+            <div class="page-header">
+                <h2>Convolution of time series<small>data smoothing</small></h2>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <p>Smoothing of noisy sensor readings through convolution with a Gaussian kernel.</p>
+                    <span class="label">Visualization</span>
+                    <span class="label">Classification</span>
+                    <span class="label">WEKA</span>
+                </div>
+                <div class="span4">
+                    <a data-toggle="modal" href="#gaussian" class="thumbnail">
+                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                    </a>
+                    <div id="gaussian" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>Convolution of time series</h3>
+                        </div>
+                        <div class="modal-body">
+                                <div class="span10">
+                                    <div class="row">
+                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span3">
+                                            <table class="table table-condensed">
+                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="embed-container">
+                        <iframe src="http://youtu.be/D0F-NPerCIE?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <section id="buttonGroups">
+            <!--div class="page-header">
+                <h1>Visualization examples</h1>
+            </div-->
+            <div class="page-header">
+                <h2>Convolution of time series<small>at multiple scales</small></h2>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <p>Smoothing of noisy sensor readings through convolution with a Gaussian kernels.</p>
+                    <span class="label">Visualization</span>
+                    <span class="label">Classification</span>
+                    <span class="label">WEKA</span>
+                </div>
+                <div class="span4">
+                    <a data-toggle="modal" href="#gaussians" class="thumbnail">
+                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                    </a>
+                    <div id="gaussians" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>Convolution of time series</h3>
+                        </div>
+                        <div class="modal-body">
+                                <div class="span10">
+                                    <div class="row">
+                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span3">
+                                            <table class="table table-condensed">
+                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="embed-container">
+                        <iframe src="http://youtu.be/3mplTc5pyFo?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+              <section id="buttonGroups">
+            <!--div class="page-header">
+                <h1>Visualization examples</h1>
+            </div-->
+            <div class="page-header">
+                <h2>Scale-space composition<small>bla</small></h2>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <p>Real-time construction of the scale space of a sensor signal though convolution with Gaussian kernels of increasing size.</p>
+                    <span class="label">Visualization</span>
+                    <span class="label">Classification</span>
+                    <span class="label">WEKA</span>
+                </div>
+                <div class="span4">
+                    <a data-toggle="modal" href="#scalespace" class="thumbnail">
+                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                    </a>
+                    <div id="scalespace" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>Scale-space composition</h3>
+                        </div>
+                        <div class="modal-body">
+                                <div class="span10">
+                                    <div class="row">
+                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span3">
+                                            <table class="table table-condensed">
+                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="embed-container">
+                        <iframe src="http://youtu.be/-sIgbedKxVo?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+           <section id="buttonGroups">
+            <!--div class="page-header">
+                <h1>Visualization examples</h1>
+            </div-->
+            <div class="page-header">
+                <h2>Scale-space decomposition<small>bla</small></h2>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <p>Decomposition of a sensor signal into components for events occurring on different time scales. Detecting transient events when these events occur on different timescales in data prone to baseline shifts can be very tricky. Through scale-space decomposition, we decompose the raw signal into its natural components, and use those to detect events.</p>
+                    <span class="label">Visualization</span>
+                    <span class="label">Classification</span>
+                    <span class="label">WEKA</span>
+                </div>
+                <div class="span4">
+                    <a data-toggle="modal" href="#scalespacedecomp" class="thumbnail">
+                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                    </a>
+                    <div id="scalespacedecomp" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>Scale-space decomposition</h3>
+                        </div>
+                        <div class="modal-body">
+                                <div class="span10">
+                                    <div class="row">
+                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span3">
+                                            <table class="table table-condensed">
+                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="embed-container">
+                        <iframe src="http://youtu.be/7eEjwX_5K8k?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+           <section id="buttonGroups">
+            <!--div class="page-header">
+                <h1>Visualization examples</h1>
+            </div-->
+            <div class="page-header">
+                <h2>Segmentation<small>bla</small></h2>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <p>Segmentation blabla</p>
+                    <span class="label">Visualization</span>
+                    <span class="label">Classification</span>
+                    <span class="label">WEKA</span>
+                </div>
+                <div class="span4">
+                    <a data-toggle="modal" href="#segmentation" class="thumbnail">
+                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                    </a>
+                    <div id="segmentation" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>Segmentation of time series</h3>
+                        </div>
+                        <div class="modal-body">
+                                <div class="span10">
+                                    <div class="row">
+                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span3">
+                                            <table class="table table-condensed">
+                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="embed-container">
+                        <iframe src="http://youtu.be/Px82ohXmJO4?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <section id="buttonGroups">
+            <!--div class="page-header">
+                <h1>Visualization examples</h1>
+            </div-->
+            <div class="page-header">
+                <h2>Discrete Fourier Transform<small>bla</small></h2>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <p>DFT blabla</p>
+                    <span class="label">Visualization</span>
+                    <span class="label">Classification</span>
+                    <span class="label">WEKA</span>
+                </div>
+                <div class="span4">
+                    <a data-toggle="modal" href="#dft" class="thumbnail">
+                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                    </a>
+                    <div id="dft" class="modal hide fade">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>DFT of time series</h3>
+                        </div>
+                        <div class="modal-body">
+                                <div class="span10">
+                                    <div class="row">
+                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span3">
+                                            <table class="table table-condensed">
+                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div class="embed-container">
+                        <iframe src="http://youtu.be/9QYYzh-VLeQ?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+      <hr>
+
+      <footer>
+        <p>&copy; 2012 University of Waikato and Leiden University</p>
+      </footer>
+
+    </div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+
+<script src="js/libs/bootstrap/bootstrap.min.js"></script>
+
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
