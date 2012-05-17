@@ -81,24 +81,32 @@
             </ul>
           </div>
         </div>
-        <!-- learning curve-->
+        <!-- Simple Gaussian -->
         <section id="buttonGroups">
-            <!--div class="page-header">
-                <h1>Visualization examples</h1>
-            </div-->
             <div class="page-header">
-                <h2>Convolution of time series <small>data smoothing</small></h2>
+                <h1>Time series analysis</h1>
+            </div>
+            <p>ADAMS' efficient token-passing architecture makes it ideal to handle streams of data. It is also very easy to extend. In these examples, we introduce new actors for several signal analysis techniques, and show how we can quickly build and test workflows to analyse time series data.</p>
+            <div class="page-header">
+                <h2>Convolution <small>Finding the signal in the noise</small></h2>
+                <p>Sensor data is often noisy and complex. Here, we introduce an actor for <a href="http://en.wikipedia.org/wiki/Convolution">convolution</a>, an operation that transforms the data into something more useful.</p>
+                
             </div>
             <div class="row">
                 <div class="span3">
-                    <p>Smoothing of noisy sensor readings through convolution with a Gaussian kernel.</p>
+                    <h3>Smoothing</h3>
+                    <p>First, we convolute the signal with a Gaussian response function (or kernel) to obtain a much cleaner signal.</p>
                     <span class="label">Time series</span>
+                    <span class="label">Sensor data</span>
                     <span class="label">Smoothing</span>
                 </div>
                 <div class="span4">
                     <a data-toggle="modal" href="#gaussian" class="thumbnail">
-                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                        <img src="img/gaussian.png" width="100%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
                     </a>
+                    <div class="caption">
+                        <h6>Click for details</h6>
+                    </div>
                     <div id="gaussian" class="modal hide fade">
                         <div class="modal-header">
                             <button class="close" data-dismiss="modal">&times;</button>
@@ -107,10 +115,16 @@
                         <div class="modal-body">
                                 <div class="span10">
                                     <div class="row">
-                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span7"><img src="img/gaussian.png" alt="Convolution"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                <tr><td><span class="badge">1</span></td><td>Retrieve data files from the given folder. Emits the files as tokens.</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td>Load and interpret the files and emit [timestamp,sensorvalue] tokens for every new timestamp.</td></tr>
+                                                <tr><td><span class="badge">3</span></td><td>Branch actor: each token is sent to three subflows for further processing.</td></tr>
+                                                <tr><td><span class="badge">4</span></td><td>This branch simply plots the data. Timestamp and sensor value are mapped straight to an X and Y coordinate, [X:timestamp,Y:sensorvalue], then sent to the plotter.</td></tr>
+                                                <tr><td><span class="badge">5</span></td><td>Visualize the used kernel (here, a Gaussian kernel). Emits values to plot the kernel, centered on the received timestamp.</td></tr>
+                                                <tr><td><span class="badge">6</span></td><td>Convolute the received data with the kernel. The agent buffers the last N tokens (N=kernel width), and emits the convoluted data points.</td></tr>
+                                                <tr><td><span class="badge">7</span></td><td>Global plotter for all data. Receives tokens sent to all GlobalSink actors linked to it.</td></tr>
                                                 </table>
                                         </div>
                                     </div>
@@ -120,29 +134,27 @@
                 </div>
                 <div class="span5">
                     <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/D0F-NPerCIE?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="http://www.youtube.com/embed/D0F-NPerCIE?wmode=opaque&rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-        </section>
-            <section id="buttonGroups">
-            <!--div class="page-header">
-                <h1>Visualization examples</h1>
-            </div-->
-            <div class="page-header">
-                <h2>Convolution of time series <small>at multiple scales</small></h2>
-            </div>
+            <hr>
+            <!-- Double Gaussian -->
             <div class="row">
                 <div class="span3">
-                    <p>Smoothing of noisy sensor readings through convolution with a Gaussian kernels.</p>
+                    <h3>Smoothing at different levels</h3>
+                    <p>Changing the width of the kernel allows us to focus on events occurring on different time scales. Simply copy-paste the last two branches and change the kernel widths.</p>
                     <span class="label">Time series</span>
                     <span class="label">Smoothing</span>
                 </div>
                 <div class="span4">
-                    <a data-toggle="modal" href="#gaussians" class="thumbnail">
-                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                    <a data-toggle="modal" href="#gaussiandouble" class="thumbnail">
+                        <img src="img/gaussiandouble.png" width="100%" alt="Convolution of time series" title="Click to open in full view, with annotations"/>
                     </a>
-                    <div id="gaussians" class="modal hide fade">
+                    <div class="caption">
+                        <h6>Click for details</h6>
+                    </div>
+                    <div id="gaussiandouble" class="modal hide fade">
                         <div class="modal-header">
                             <button class="close" data-dismiss="modal">&times;</button>
                             <h3>Convolution of time series</h3>
@@ -150,10 +162,11 @@
                         <div class="modal-body">
                                 <div class="span10">
                                     <div class="row">
-                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span7"><img src="img/gaussiandouble.png" alt="Convolution"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                <tr><td><span class="badge">1</span></td><td>Copy-paste the last two branches</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td>Change the kernel width parameter sigma</td></tr>
                                                 </table>
                                         </div>
                                     </div>
@@ -163,28 +176,26 @@
                 </div>
                 <div class="span5">
                     <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/3mplTc5pyFo?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="http://www.youtube.com/embed/3mplTc5pyFo?wmode=opaque&rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-        </section>
-              <section id="buttonGroups">
-            <!--div class="page-header">
-                <h1>Visualization examples</h1>
-            </div-->
-            <div class="page-header">
-                <h2>Scale-space composition <small>bla</small></h2>
-            </div>
+            
+       <hr>
             <div class="row">
                 <div class="span3">
-                    <p>Real-time construction of the scale space of a sensor signal though convolution with Gaussian kernels of increasing size.</p>
+                    <h3>Scale-space composition</h3>
+                    <p>Convoluting the same signal with a whole range of different kernel widths creates a so-called <i>scale space</i>, a space of signals sensitive to events at different time scales.</p>
                     <span class="label">Time series</span>
-                    <span class="label">Composition</span>
+                    <span class="label">Multi-scale analysis</span>
                 </div>
                 <div class="span4">
                     <a data-toggle="modal" href="#scalespace" class="thumbnail">
-                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                        <img src="img/scalespace.png" width="80%" height="80%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
                     </a>
+                    <div class="caption">
+                        <h6>Click for details</h6>
+                    </div>
                     <div id="scalespace" class="modal hide fade">
                         <div class="modal-header">
                             <button class="close" data-dismiss="modal">&times;</button>
@@ -193,10 +204,11 @@
                         <div class="modal-body">
                                 <div class="span10">
                                     <div class="row">
-                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span7"><img src="img/scalespace.png" alt="Scale space"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                <tr><td><span class="badge">1</span></td><td>Copy-paste the convolution branches</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td>Increase the kernel width. Here, we double it each time</td></tr>
                                                 </table>
                                         </div>
                                     </div>
@@ -206,28 +218,25 @@
                 </div>
                 <div class="span5">
                     <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/-sIgbedKxVo?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="http://www.youtube.com/embed/-sIgbedKxVo?wmode=opaque&rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div>
-        </section>
-           <section id="buttonGroups">
-            <!--div class="page-header">
-                <h1>Visualization examples</h1>
-            </div-->
-            <div class="page-header">
-                <h2>Scale-space decomposition <small>bla</small></h2>
-            </div>
+            </div>         
+        <hr>
             <div class="row">
                 <div class="span3">
-                    <p>Decomposition of a sensor signal into components for events occurring on different time scales. Detecting transient events when these events occur on different timescales in data prone to baseline shifts can be very tricky. Through scale-space decomposition, we decompose the raw signal into its natural components, and use those to detect events.</p>
+                    <h3>Scale-space decomposition</h3>
+                    <p>Decomposition of a sensor signal into components displaying events occurring on different time scales. Detecting transient events when these events occur on different timescales in data prone to baseline shifts can be very tricky. Through scale-space decomposition, we decompose the raw signal into its natural components, and use those to detect events. This is done by taking the scale space and establishing 'regions' of the scale space where events of a certain time scale take place. Each region will be represented by a component, calculated by substracting the convolutions at either end of the region. The latter is also known as a `difference of Gaussians' filter, or band-pass filter. The sum of the components recreates the original signal.</p>
                     <span class="label">Time series</span>
-                    <span class="label">Decomposition</span>
+                    <span class="label">Band-pass filter</span>
                 </div>
                 <div class="span4">
                     <a data-toggle="modal" href="#scalespacedecomp" class="thumbnail">
-                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                        <img src="img/decomposition.png" width="80%" height="80%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
                     </a>
+                    <div class="caption">
+                        <h6>Click for details</h6>
+                    </div>
                     <div id="scalespacedecomp" class="modal hide fade">
                         <div class="modal-header">
                             <button class="close" data-dismiss="modal">&times;</button>
@@ -236,10 +245,15 @@
                         <div class="modal-body">
                                 <div class="span10">
                                     <div class="row">
-                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span7"><img src="img/decomposition.png" alt="Decomposition"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
+                                                <tr><td><span class="badge">1</span></td><td>Sensor data is read and split into individual tokens as before</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td>The data is subsampled: only every 100th token is passed on</td></tr>
+                                                <tr><td><span class="badge">3</span></td><td>The baseline of the data is created through convolution with a large Gaussian, only sensitive to large-scale events</td></tr>
+                                                <tr><td><span class="badge">4</span></td><td>The first band-pass filter is applied. It takes the difference of the Gaussians of width 64 and 16. The result is sent to the plotter</td></tr>
+                                                <tr><td><span class="badge">5</span></td><td>Second band-pass filter, for signals in the range sigma=[4,16]</td></tr>
+                                                <tr><td><span class="badge">6</span></td><td>Third band-pass filter, for signals in the range sigma=[0,4]</td></tr>
                                                 </table>
                                         </div>
                                     </div>
@@ -249,28 +263,34 @@
                 </div>
                 <div class="span5">
                     <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/7eEjwX_5K8k?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="http://www.youtube.com/embed/7eEjwX_5K8k?wmode=opaque&rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
+        <hr>
            <section id="buttonGroups">
             <!--div class="page-header">
                 <h1>Visualization examples</h1>
             </div-->
             <div class="page-header">
-                <h2>Segmentation <small>of signal data</small></h2>
+                <h2>Segmentation <small>of time series data</small></h2>
+                <p>A time series can be approximated by a piecewice linear function. This will result in a time series that is significantly smaller in size (disk space), and thus easier to store and process.</p>
             </div>
             <div class="row">
                 <div class="span3">
-                    <p>Segmentation blabla</p>
+                    <h3>Segmentation through convolution</h3>
+                    <p>One way of approximating the signal is to begin a new line segment if the signal changes it's slope drastically. These points can be found by taking the 1st, 2nd, 3rd,... order derivative of the signal and start a new line segment for every zero-crossing of these derivatives. Instead of first calculating the convolution of a signal and then taking its derivative, we can achieve the same result by convoluting the signal with the derivative of the kernel used for convolution! Thus, we take the  1st, 2nd, 3rd,... order derivative of the Gaussian kernel, do their convolutions, and start a new line segment at any zero-crossings.</p>
                     <span class="label">Time series</span>
                     <span class="label">Segmentation</span>
                 </div>
                 <div class="span4">
                     <a data-toggle="modal" href="#segmentation" class="thumbnail">
-                        <img src="img/learning_curve.png" width="50%" height="50%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
+                        <img src="img/segmentation.png" width="80%" height="80%" alt="Classifier learning curve" title="Click to open in full view, with annotations"/>
                     </a>
+                    <div class="caption">
+                        <h6>Click for details</h6>
+                    </div>
                     <div id="segmentation" class="modal hide fade">
                         <div class="modal-header">
                             <button class="close" data-dismiss="modal">&times;</button>
@@ -279,11 +299,17 @@
                         <div class="modal-body">
                                 <div class="span10">
                                     <div class="row">
-                                        <div class="span7"><img src="img/learning_curve.png" alt="Classifier learning curve"/></div>
+                                        <div class="span7"><img src="img/segmentation.png" alt="Segmentation"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td>Step 1</td></tr>
-                                                </table>
+                                                <tr><td><span class="badge">1</span></td><td>Load and split the data into tokens as before</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td>Plot the raw sensor data</td></tr>
+                                                <tr><td><span class="badge">3</span></td><td>Compute the third order derivative of the convolution and normalize it between -1 and 1 (for nicer plotting)</td></tr>
+                                                <tr><td><span class="badge">4</span></td><td>Compute the second order derivative of the convolution and normalize it between -1 and 1
+                                                <tr><td><span class="badge">5</span></td><td>Compute the first order derivative of the convolution and normalize it between -1 and 1
+                                                <tr><td><span class="badge">6</span></td><td>The segmentation agent does the same as the above three branches, but only lets through a token (unaltered) if one of the derivates crosses zero</td></tr>
+                                                <tr><td><span class="badge">7</span></td><td>Compute and plot the convolution with the base Gaussion kernel</td></tr>
+                                                <tr><td><span class="badge">8</span></td><td>The plotter collects and plots all received tokens</td></tr>                                                </table>
                                         </div>
                                     </div>
                             </div>
@@ -292,11 +318,12 @@
                 </div>
                 <div class="span5">
                     <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/Px82ohXmJO4?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="http://www.youtube.com/embed/Px82ohXmJO4?wmode=opaque&rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
+        <hr>
             <section id="buttonGroups">
             <!--div class="page-header">
                 <h1>Visualization examples</h1>
@@ -335,7 +362,7 @@
                 </div>
                 <div class="span5">
                     <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/9QYYzh-VLeQ?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="http://www.youtube.com/embed/9QYYzh-VLeQ?wmode=opaque&rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
