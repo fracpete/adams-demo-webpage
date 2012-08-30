@@ -207,7 +207,7 @@
             </div>
             <div class="row">
                 <div class="span3">
-                    <p>Using GC-MS extension modules, this flow processes spectral generating predictions for ions (anions/cations). The user can correct the guessed peaks interactively, before the concentrations are calculated.</p>
+                    <p>Using GC-MS extension modules, this flow processes spectral data generating predictions for ions (anions/cations). The user can correct the guessed peaks interactively, before the concentrations are calculated.</p>
                     <span class="label">Regression</span>
                     <span class="label">Interactive</span>
                     <span class="label">WEKA</span>
@@ -230,16 +230,17 @@
                                         <div class="span7"><img src="img/loac.png" alt="Lab-on-a-chip"/></div>
                                         <div class="span3">
                                             <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td> Retrieve classification available classification labels</td></tr>
-                                                <tr><td><span class="badge">2</span></td><td> List all chromatogram files</td></tr>
-                                                <tr><td><span class="badge">3</span></td><td> Load and pre-process chromatograms one-by-one</td></tr>
-                                                <tr><td><span class="badge">4</span></td><td> Show Total-ion-count and take a screenshot for report</td></tr>
-                                                <tr><td><span class="badge">5</span></td><td> The same with the Baseline-ion-count</td></tr>
-                                                <tr><td><span class="badge">6</span></td><td> Turn chromatogram into WEKA instance and predict the class label</td></tr>
-                                                <tr><td><span class="badge">7</span></td><td> Determine the fruit/vegetable picture associated with the label</td></tr>
-                                                <tr><td><span class="badge">8</span></td><td> Create a spreadsheet from the class distribution (top 5)</td></tr>
-                                                <tr><td><span class="badge">9</span></td><td> Generate various output for the PDF report</td></tr>
-                                                <tr><td><span class="badge">10</span></td><td> Generate PDF report</td></tr>
+                                                <tr><td><span class="badge">1</span></td><td> Set up external flows, relative to current one</td></tr>
+                                                <tr><td><span class="badge">2</span></td><td> Set up variables for serialized regression model files</td></tr>
+                                                <tr><td><span class="badge">3</span></td><td> Prompt user to select spectra</td></tr>
+                                                <tr><td><span class="badge">4</span></td><td> Determine extension of currently processed spectrum</td></tr>
+                                                <tr><td><span class="badge">5</span></td><td> Prompt user to enter pH and EC</td></tr>
+                                                <tr><td><span class="badge">6</span></td><td> Load file, executing subflow depending on file extensions</td></tr>
+                                                <tr><td><span class="badge">7</span></td><td> Guess type of ion based on filename and prompt with pre-selected choice (Anion or Cation)</td></tr>
+                                                <tr><td><span class="badge">8</span></td><td> Process spectrum, guessing peaks using external flow (either Cation or Anion one)</td></tr>
+                                                <tr><td><span class="badge">9</span></td><td> Prompt user to inspect selected peaks, allow user to correct them</td></tr>
+                                                <tr><td><span class="badge">10</span></td><td> Turn spectrum into WEKA data structure and make prediction on peak area for all ions</td></tr>
+                                                <tr><td><span class="badge">11</span></td><td> Assemble predictions, display them and copy them to the clipboard as well before proceeding with the next data file</td></tr>
                                             </table>
                                         </div>
                                     </div>
