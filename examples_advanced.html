@@ -200,61 +200,6 @@
                 </div>
             </div>
         </section>
-        <!-- spectral analysis -->
-        <section id="buttonGroups">
-            <div class="page-header">
-                <h2>Interactive spectral analysis<small></small></h2>
-            </div>
-            <div class="row">
-                <div class="span3">
-                    <p>Using GC-MS extension modules, this flow processes spectral data generating predictions for ions. The user can correct the guessed peaks interactively, before the concentrations are calculated.</p>
-                    <span class="label">Regression</span>
-                    <span class="label">Interactive</span>
-                    <span class="label">WEKA</span>
-                </div>
-                <div class="span4">
-                    <a data-toggle="modal" href="#spectralanalysis" class="thumbnail">
-                        <img src="img/spectralanalysis.png" width="50%" height="50%" alt="Sample type checker" title="Click to open in full view, with annotations"/>
-                    </a>
-                    <div class="caption">
-                        <h6>Click for details</h6>
-                    </div>
-                    <div id="spectralanalysis" class="modal hide fade">
-                        <div class="modal-header">
-                            <button class="close" data-dismiss="modal">&times;</button>
-                            <h3>Interactive spectral analysis</h3>
-                        </div>
-                        <div class="modal-body">
-                                <div class="span10">
-                                    <div class="row">
-                                        <div class="span7"><img src="img/spectralanalysis.png" alt="Spectral analysis"/></div>
-                                        <div class="span3">
-                                            <table class="table table-condensed">
-                                                <tr><td><span class="badge">1</span></td><td> Set up external flows, relative to current one</td></tr>
-                                                <tr><td><span class="badge">2</span></td><td> Set up variables for serialized regression model files</td></tr>
-                                                <tr><td><span class="badge">3</span></td><td> Prompt user to select spectra</td></tr>
-                                                <tr><td><span class="badge">4</span></td><td> Determine extension of currently processed spectrum</td></tr>
-                                                <tr><td><span class="badge">5</span></td><td> Prompt user to enter additional parameters</td></tr>
-                                                <tr><td><span class="badge">6</span></td><td> Load file, executing subflow depending on file extensions</td></tr>
-                                                <tr><td><span class="badge">7</span></td><td> Guess type of ion based on filename and prompt with pre-selected choice</td></tr>
-                                                <tr><td><span class="badge">8</span></td><td> Process spectrum, guessing peaks using external flow</td></tr>
-                                                <tr><td><span class="badge">9</span></td><td> Prompt user to inspect selected peaks, allow user to correct them</td></tr>
-                                                <tr><td><span class="badge">10</span></td><td> Turn spectrum into WEKA data structure and make prediction on peak area for all ions</td></tr>
-                                                <tr><td><span class="badge">11</span></td><td> Assemble predictions, display them and copy them to the clipboard as well before proceeding with the next data file</td></tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="span5">
-                    <div class="embed-container">
-                        <iframe src="http://www.youtube.com/embed/fua4f4vyyQ0?wmode=opaque" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
         
       <hr>
 
